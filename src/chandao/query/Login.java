@@ -1,9 +1,12 @@
 package chandao.query;
 
+import chandao.action.ExtractData;
+import chandao.bean.TaskItem;
 import chandao.data.LogInData;
 import chandao.message.Notifier;
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.NicelyResynchronizingAjaxController;
+import com.gargoylesoftware.htmlunit.Page;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlButton;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
@@ -13,6 +16,7 @@ import com.gargoylesoftware.htmlunit.util.Cookie;
 import com.intellij.openapi.ui.MessageType;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Set;
 
 public class Login {
@@ -35,11 +39,6 @@ public class Login {
     }
     //登录
     public void login() {
-        //你的账号和密码
-//        String userName="niushunshun";
-//        String password="Niushunshun624";
-        //登录页面的网址
-//        String loginUrl="http://work.ruiyunnet.com/biz/user-login.html";
         try {
             //打开登录页面
             final HtmlPage page = webClient.getPage(LogInData.LOGIN_URL);
@@ -63,8 +62,9 @@ public class Login {
             //获取cookie
             LogInData.COOKIE = cookie.toString();
             LogInData.WEB_CLIENT = webClient;
-            System.out.println(LogInData.string());
-            System.out.println(webClient.getPage("http://work.ruiyunnet.com/biz/user-login.html").getWebResponse().getContentAsString());
+            HtmlPage MainPage = webClient.getPage("http://work.ruiyunnet.com/biz/user-login.html");
+            LogInData.TASK_LIST = ExtractData.getTaskList(MainPage.getPage());
+            LogInData.setTableModel();
         } catch (IOException e) {
             Notifier.notify(e.getMessage(), MessageType.ERROR);
         }

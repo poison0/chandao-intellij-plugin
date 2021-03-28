@@ -53,8 +53,7 @@ public class LgDialog extends DialogWrapper {
             LogInData.PASS_WORD = password;
             LogInData.USER_NAME = user;
             LgDialog.this.dispose();
-//            new Login().login();
-            TABLE_MODEL.addRow(new String[]{"1","2","3","4"});
+            new Login().login();
             Notifier.notify("登录成功", MessageType.INFO);
         });
         jPanel.add(button, BorderLayout.EAST);

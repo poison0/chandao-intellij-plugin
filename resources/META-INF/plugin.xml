@@ -25,7 +25,7 @@
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
 <!--    <notificationGroup id="Custom Notification Group" displayType="BALLOON" key=""/>-->
-    <toolWindow factoryClass="chandao.gui.ListWindowFactory" id="禅道" anchor="right"></toolWindow>
+    <toolWindow factoryClass="chandao.gui.ListWindowFactory" id="禅道" anchor="bottom"></toolWindow>
   </extensions>
 
   <actions>

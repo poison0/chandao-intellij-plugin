@@ -1,45 +1,39 @@
 package chandao.gui;
 
+import chandao.data.LogInData;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.wm.ToolWindow;
-import com.intellij.ui.Gray;
-import com.intellij.ui.JBColor;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
 
 public class OperationWindow {
 
     private JPanel contentPanel;
-    private JList list;
+    private JTable table;
 
-    private void init() {
-//        table.setModel(LogInData.TABLE_MODEL);
-//        table.setEnabled(true);
-        DefaultListModel<String> model = new DefaultListModel<>();
-        model.addElement("123442333");
-        model.addElement("123442333");
-        model.addElement("123442333");
-        model.addElement("123442333");
-        model.addElement("123442333");
-        model.addElement("123442333");
-        model.addElement("123442333");
-        model.addElement("123442333");
-        model.addElement("123442333");
-        model.addElement("123442333");
-        model.addElement("123442333");
-        model.addElement("123442333");
-        model.addElement("123442333");
-        list.setFixedCellHeight(30);
-        list.setModel(model);
-        list.setEnabled(true);
+    private void init(ToolWindow toolWindow) {
+        table.setModel(LogInData.TABLE_MODEL);
+        TableColumnModel cm = table.getColumnModel();
+        JTableHeader tableHeader = table.getTableHeader();
+
+        TableColumn columnID = cm.getColumn(0);
+        columnID.setPreferredWidth(40);
+        columnID.setMinWidth(40);
+        TableColumn columnP = cm.getColumn(1);
+        columnP.setPreferredWidth(40);
+        columnP.setMinWidth(40);
+        TableColumn columnT = cm.getColumn(2);
+        columnT.setPreferredWidth(400);
+        table.setEnabled(true);
     }
 
+
     public OperationWindow(@NotNull Project project, @NotNull ToolWindow toolWindow) {
-        init();
+        init(toolWindow);
     }
 
     public JPanel getContentPanel() {

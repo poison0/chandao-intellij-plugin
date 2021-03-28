@@ -1,8 +1,11 @@
 package chandao.data;
 
+import chandao.bean.TaskItem;
 import com.gargoylesoftware.htmlunit.WebClient;
 
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.util.List;
 
 public class LogInData {
     //cookie
@@ -18,20 +21,19 @@ public class LogInData {
     public static String LOGIN_URL;
     //登录名
     public static String NAME;
+    //任务
+    public static List<TaskItem> TASK_LIST;
 
-    public static String[] HEAD={"标题","备注","文件名","代码段"};
+    public static String[] HEAD={"ID","P","名称"};
 
     public static DefaultTableModel TABLE_MODEL = new DefaultTableModel(null,HEAD);
     static {
         LOGIN_URL = "http://work.ruiyunnet.com/biz/user-login.html";
     }
 
-    public static String string() {
-
-        return "COOKIE="+COOKIE+"  "+
-                "WEB_CLIENT="+WEB_CLIENT+"  "+
-                "USER_NAME="+USER_NAME+"  "+
-                "PASS_WORD="+PASS_WORD+"  "+
-                "LOGIN_URL="+LOGIN_URL;
+    public static void setTableModel() {
+        for (TaskItem taskItem : TASK_LIST) {
+            TABLE_MODEL.addRow(DataConvert.covert(taskItem));
+        }
     }
 }
