@@ -2,9 +2,11 @@ package chandao.data;
 
 import chandao.bean.TaskItem;
 import com.gargoylesoftware.htmlunit.WebClient;
+import com.intellij.ui.CollectionComboBoxModel;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
 import java.util.List;
 
 public class LogInData {
@@ -24,16 +26,26 @@ public class LogInData {
     //任务
     public static List<TaskItem> TASK_LIST;
 
-    public static String[] HEAD={"ID","P","名称"};
+    public static DefaultListModel <TaskItem> LIST_MODEL;
 
-    public static DefaultTableModel TABLE_MODEL = new DefaultTableModel(null,HEAD);
     static {
         LOGIN_URL = "http://work.ruiyunnet.com/biz/user-login.html";
+        TASK_LIST = new ArrayList<>();
+        TaskItem taskItem = new TaskItem();
+        taskItem.setId("12233");
+        taskItem.setTaskName("JList类把维护和绘制列表的工作委托给一个对象来完成");
+        taskItem.setP("中");
+        TaskItem taskItem2 = new TaskItem();
+        taskItem2.setId("12233");
+        taskItem2.setTaskName("JList类把维护和绘制列表的工作委托给一个对象来完成");
+        taskItem2.setP("严重");
+        TASK_LIST.add(taskItem);
+        TASK_LIST.add(taskItem2);
+        LIST_MODEL = new DefaultListModel<>();
+        LIST_MODEL.addElement(taskItem);
+        LIST_MODEL.addElement(taskItem2);
     }
 
     public static void setTableModel() {
-        for (TaskItem taskItem : TASK_LIST) {
-            TABLE_MODEL.addRow(DataConvert.covert(taskItem));
-        }
     }
 }

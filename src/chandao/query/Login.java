@@ -39,6 +39,11 @@ public class Login {
     }
     //登录
     public void login() {
+        //你的账号和密码
+//        String userName="niushunshun";
+//        String password="Niushunshun624";
+        //登录页面的网址
+//        String loginUrl="http://work.ruiyunnet.com/biz/user-login.html";
         try {
             //打开登录页面
             final HtmlPage page = webClient.getPage(LogInData.LOGIN_URL);

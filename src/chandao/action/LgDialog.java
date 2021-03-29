@@ -1,16 +1,14 @@
 package chandao.action;
 
+import chandao.bean.TaskItem;
 import chandao.data.LogInData;
 import chandao.message.Notifier;
-import chandao.query.Login;
 import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.openapi.ui.MessageType;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
 import java.awt.*;
-
-import static chandao.data.LogInData.TABLE_MODEL;
 
 public class LgDialog extends DialogWrapper {
 
@@ -53,7 +51,8 @@ public class LgDialog extends DialogWrapper {
             LogInData.PASS_WORD = password;
             LogInData.USER_NAME = user;
             LgDialog.this.dispose();
-            new Login().login();
+//            new Login().login();
+
             Notifier.notify("登录成功", MessageType.INFO);
         });
         jPanel.add(button, BorderLayout.EAST);
