@@ -42,4 +42,14 @@ public class TaskItem {
     public void setP(String p) {
         this.p = p;
     }
+
+    @Override
+    public String toString() {
+        return "TaskItem{" +
+                "taskName='" + taskName + '\'' +
+                ", anchor=" + anchor +
+                ", id='" + id + '\'' +
+                ", p='" + p + '\'' +
+                '}';
+    }
 }

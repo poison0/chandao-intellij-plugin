@@ -30,6 +30,8 @@ public class ListWindowFactory implements ToolWindowFactory {
         DefaultActionGroup group = new DefaultActionGroup();
         group.add(new AddTabAction());
         group.add(new RefreshTabAction());
+        group.add(new NewWindowsAction());
+        group.add(new SignOutAction());
         ActionToolbar toolbar = ActionManager.getInstance().createActionToolbar(ActionPlaces.TOOLBAR, group, false);
         toolbar.setOrientation(SwingConstants.VERTICAL);
         return toolbar;
