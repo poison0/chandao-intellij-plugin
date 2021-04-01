@@ -39,11 +39,17 @@ public class LogInData {
         taskItem2.setId("12233");
         taskItem2.setTaskName("JList类把维护和绘制列表的工作委托给一个对象来完成");
         taskItem2.setP("严重");
+        TaskItem taskItem3 = new TaskItem();
+        taskItem3.setId("12233");
+        taskItem3.setTaskName("JList类把维护和绘制列表的工作委托给一个对象来完成");
+        taskItem3.setP("严重");
         TASK_LIST.add(taskItem);
         TASK_LIST.add(taskItem2);
+        TASK_LIST.add(taskItem3);
         LIST_MODEL = new DefaultListModel<>();
         LIST_MODEL.addElement(taskItem);
         LIST_MODEL.addElement(taskItem2);
+        LIST_MODEL.addElement(taskItem3);
     }
 
     public static void setTableModel() {

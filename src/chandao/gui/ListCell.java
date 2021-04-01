@@ -1,10 +1,14 @@
 package chandao.gui;
 
 import chandao.bean.TaskItem;
+import com.intellij.application.options.codeStyle.arrangement.util.CalloutBorder;
+import com.intellij.designer.designSurface.feedbacks.LineMarginBorder;
 import com.intellij.ui.Gray;
 import com.intellij.ui.JBColor;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.plaf.metal.MetalBorders;
 import java.awt.*;
 import java.awt.image.ColorModel;
 
@@ -23,8 +27,7 @@ public class ListCell extends JLabel implements ListCellRenderer<TaskItem>{
             setForeground(list.getSelectionForeground());
         } else {
             setBackground(list.getBackground());
-            Color c = new JBColor(new Color(255, 200, 0), Gray._255);
-            setForeground(c);
+            setForeground(list.getForeground());
         }
         setEnabled(list.isEnabled());
         setFont(list.getFont());
