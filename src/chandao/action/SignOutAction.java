@@ -1,4 +1,4 @@
-package chandao.gui;
+package chandao.action;
 
 import com.intellij.icons.AllIcons;
 import com.intellij.openapi.actionSystem.AnAction;

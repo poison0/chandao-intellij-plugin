@@ -1,17 +1,16 @@
-package chandao.gui;
+package chandao.action;
 
 import com.intellij.icons.AllIcons;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import org.jetbrains.annotations.NotNull;
 
-public class NewWindowsAction extends AnAction {
-
+public class RefreshTabAction extends AnAction {
     @Override
     public void actionPerformed(@NotNull AnActionEvent anActionEvent) {
 
     }
-    public NewWindowsAction() {
-        super("详细信息", "详细信息", AllIcons.Actions.PreviewDetails);
+    public RefreshTabAction() {
+        super("刷新", "刷新", AllIcons.Actions.Refresh);
     }
 }

@@ -1,5 +1,8 @@
-package chandao.gui;
+package chandao.action;
 
+import chandao.gui.AddTabAction;
+import chandao.gui.OperationWindow;
+import chandao.gui.ToolWindowPanel;
 import com.intellij.openapi.actionSystem.ActionManager;
 import com.intellij.openapi.actionSystem.ActionPlaces;
 import com.intellij.openapi.actionSystem.ActionToolbar;
