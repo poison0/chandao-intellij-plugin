@@ -1,6 +1,5 @@
-package chandao.gui;
+package chandao.action;
 
-import chandao.action.LgDialog;
 import com.intellij.icons.AllIcons;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
