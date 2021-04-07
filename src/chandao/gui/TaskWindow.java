@@ -1,5 +1,6 @@
 package chandao.gui;
 
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
@@ -14,14 +15,15 @@ public class TaskWindow extends JFrame {
     private void setupView() {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
-        int width = screenSize.width / 4;
+        int width = screenSize.width / 3;
         int height = screenSize.height / 2;
 
         height = height == 0 ? 500 : height;
         width = width == 0 ? 300 : width;
 
         setPreferredSize(new Dimension(width, height));
-//        add(mParserWidget.getNewComponent(), BorderLayout.CENTER);
+        TaskWindowGui taskWindowGui = new TaskWindowGui();
+        add(taskWindowGui.getMainPanel(), BorderLayout.CENTER);
         setSize(new Dimension(width, height));
 
         int locationWidth = (screenSize.width / 2 - width / 2) +  20;
