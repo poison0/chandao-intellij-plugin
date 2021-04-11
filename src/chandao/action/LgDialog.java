@@ -3,6 +3,8 @@ package chandao.action;
 import chandao.bean.TaskItem;
 import chandao.data.LogInData;
 import chandao.message.Notifier;
+import chandao.query.Login;
+import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.openapi.ui.MessageType;
 import org.jetbrains.annotations.Nullable;
@@ -38,6 +40,12 @@ public class LgDialog extends DialogWrapper {
         secondPanel.add(passwordField, BorderLayout.CENTER);
         jPanel.add(firstPanel,BorderLayout.NORTH);
         jPanel.add(secondPanel,BorderLayout.CENTER);
+        if (LogInData.USER_NAME != null) {
+            userField.setText(LogInData.USER_NAME);
+        }
+        if (LogInData.PASS_WORD != null) {
+            passwordField.setText(LogInData.PASS_WORD);
+        }
         return jPanel;
     }
 
@@ -50,8 +58,11 @@ public class LgDialog extends DialogWrapper {
             String user = userField.getText();
             LogInData.PASS_WORD = password;
             LogInData.USER_NAME = user;
+            PropertiesComponent instance = PropertiesComponent.getInstance();
+            instance.setValue("chandao_pass_word",password);
+            instance.setValue("chandao_user_name",user);
             LgDialog.this.dispose();
-//            new Login().login();
+            new Login().login();
 
             Notifier.notify("登录成功", MessageType.INFO);
         });

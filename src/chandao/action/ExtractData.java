@@ -11,11 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ExtractData {
-    public static List<TaskItem> getTaskList(HtmlPage page) {
-        List<HtmlAnchor> anchors = page.getByXPath("//nav[@id='subNavbar']/ul/li[@data-id='task']/a");
+    public static List<TaskItem> getTaskList(HtmlPage task) {
         ArrayList<TaskItem> taskItems = new ArrayList<>();
         try {
-            HtmlPage task = anchors.get(0).click();
             List<HtmlTableRow> tr = task.getByXPath("//table[@id='tasktable']/tbody/tr");
             for (HtmlTableRow htmlTableRow : tr) {
                 String id = htmlTableRow.getCell(0).asText().split("\r\n")[1];
@@ -41,10 +39,14 @@ public class ExtractData {
                 taskItems.add(taskItem);
             }
 
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             Notifier.notify("加载任务出错"+e.getMessage(), MessageType.ERROR);
         }
         return taskItems;
+    }
+
+    public static String getNum() {
+        return "";
     }
 }
