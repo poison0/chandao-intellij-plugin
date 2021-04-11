@@ -1,9 +1,5 @@
 package chandao.gui;
 
-import com.intellij.icons.AllIcons;
-import com.intellij.openapi.editor.Document;
-import com.intellij.openapi.editor.Editor;
-import com.intellij.openapi.editor.EditorFactory;
 
 import javax.swing.*;
 import java.awt.*;

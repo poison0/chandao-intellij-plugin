@@ -1,5 +1,7 @@
 package chandao.action;
 
+import chandao.bean.TaskItem;
+import chandao.data.LogInData;
 import chandao.gui.TaskWindow;
 import com.intellij.icons.AllIcons;
 import com.intellij.openapi.actionSystem.AnAction;
@@ -10,8 +12,11 @@ public class NewWindowsAction extends AnAction {
 
     @Override
     public void actionPerformed(@NotNull AnActionEvent anActionEvent) {
-        TaskWindow task = new TaskWindow(" 56846（掌中宝交易MB）（拣货单bug）手机端拣货单跟PC端显示的顺序不一致（微微）（dear艳艳）");
-        System.out.println(task);
+        TaskItem selectedValue = LogInData.listTask.getSelectedValue();
+        if (selectedValue != null) {
+            TaskWindow task = new TaskWindow(selectedValue.getTaskName());
+            System.out.println(selectedValue);
+        }
     }
     public NewWindowsAction() {
         super("详细信息", "详细信息", AllIcons.Actions.PreviewDetails);

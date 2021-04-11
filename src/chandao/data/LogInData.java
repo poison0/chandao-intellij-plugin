@@ -25,6 +25,8 @@ public class LogInData {
     public static String NAME;
     //任务
     public static List<TaskItem> TASK_LIST;
+    //任务
+    public static JList<TaskItem> listTask;
 
     public static DefaultListModel <TaskItem> LIST_MODEL;
 
