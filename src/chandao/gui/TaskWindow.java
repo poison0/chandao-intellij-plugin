@@ -1,6 +1,9 @@
 package chandao.gui;
 
 
+import chandao.bean.TaskItem;
+import chandao.util.TaskDetailUtil;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
@@ -8,21 +11,21 @@ import java.awt.event.WindowEvent;
 
 public class TaskWindow extends JFrame {
 
-    public TaskWindow(String title) {
-        setupView();
-        setTitle(title);
+    public TaskWindow(TaskItem item) {
+        setupView(item);
+        setTitle("#"+item.getId()+" "+item.getP()+" "+item.getTaskName());
     }
-    private void setupView() {
+    private void setupView(TaskItem item) {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
-        int width = screenSize.width / 3;
+        int width = screenSize.width / 2;
         int height = screenSize.height / 2;
 
         height = height == 0 ? 500 : height;
         width = width == 0 ? 300 : width;
 
         setPreferredSize(new Dimension(width, height));
-        TaskWindowGui taskWindowGui = new TaskWindowGui();
+        TaskWindowGui taskWindowGui = new TaskWindowGui(TaskDetailUtil.generateDetails(item));
         add(taskWindowGui.getMainPanel(), BorderLayout.CENTER);
         setSize(new Dimension(width, height));
 
@@ -34,8 +37,6 @@ public class TaskWindow extends JFrame {
             @Override
             public void windowClosing(WindowEvent e) {
                 e.getWindow().dispose();
-//                if (mWindowAdapter != null)
-//                    mWindowAdapter.windowClosing(e);
             }
         });
         java.awt.EventQueue.invokeLater(() -> {

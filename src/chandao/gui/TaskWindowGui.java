@@ -1,36 +1,24 @@
 package chandao.gui;
 
 
+import chandao.bean.TaskDetail;
+import chandao.util.TaskDetailUtil;
+
 import javax.swing.*;
-import java.awt.*;
 
 public class TaskWindowGui {
     private JPanel mainPanel;
     private JPanel taskDescribe;
     private JPanel historyRecord;
-    private JLabel pic;
-    private JTextPane textPane1;
-    private JLabel history;
+    private JLabel describeLabel;
+    private JLabel historyLabel;
 
-    private void init() {
-        pic.setText("<html>" +
-                " <div>  " +
-                "   <img  src='http://work.ruiyunnet.com/biz/file-read-344282.png' />" +
-                " </div>" +
-                " <div>  " +
-                "   <img  src='http://work.ruiyunnet.com/biz/file-read-344282.png' />" +
-                " </div>" +
-                "</html>");
-        textPane1.setText(
-                "   2020-12-24 18:24:33, 由 hyyao 创建。\n" +
-                "   2020-12-25 10:40:18, 由 詹淑英 指派给 吕强鹏。\n" +
-                "   2021-04-08 15:15:35, 由 吕强鹏 指派给 牛顺顺。\n"
-                );
-
-        textPane1.setEditable(false);
+    private void init(TaskDetail taskDetail) {
+        describeLabel.setText(TaskDetailUtil.createdDescribeHtml(taskDetail.getTaskDescribes()));
+        historyLabel.setText(TaskDetailUtil.createdHistory(taskDetail.getTaskHistories()));
     }
-    public TaskWindowGui() {
-        init();
+    public TaskWindowGui(TaskDetail taskDetail) {
+        init(taskDetail);
     }
 
     public JPanel getTaskDescribe() {

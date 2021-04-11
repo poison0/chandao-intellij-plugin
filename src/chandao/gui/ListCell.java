@@ -1,16 +1,9 @@
 package chandao.gui;
 
 import chandao.bean.TaskItem;
-import com.intellij.application.options.codeStyle.arrangement.util.CalloutBorder;
-import com.intellij.designer.designSurface.feedbacks.LineMarginBorder;
-import com.intellij.ui.Gray;
-import com.intellij.ui.JBColor;
 
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.plaf.metal.MetalBorders;
 import java.awt.*;
-import java.awt.image.ColorModel;
 
 /**
  * 重写显示样式

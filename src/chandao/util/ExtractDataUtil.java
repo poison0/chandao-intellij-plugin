@@ -1,16 +1,14 @@
-package chandao.action;
+package chandao.util;
 
 import chandao.bean.TaskItem;
 import chandao.message.Notifier;
-import com.gargoylesoftware.htmlunit.Page;
 import com.gargoylesoftware.htmlunit.html.*;
 import com.intellij.openapi.ui.MessageType;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExtractData {
+public class ExtractDataUtil {
     public static List<TaskItem> getTaskList(HtmlPage task) {
         ArrayList<TaskItem> taskItems = new ArrayList<>();
         try {

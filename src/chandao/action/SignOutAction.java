@@ -9,8 +9,6 @@ public class SignOutAction extends AnAction {
 
     public SignOutAction() {
         super("退出", "退出", AllIcons.Actions.PopFrame);
-//        super("退出", "退出", AllIcons.Actions.PreviewDetails);
-//        super("退出", "退出", AllIcons.Process.Stop);
     }
 
     @Override

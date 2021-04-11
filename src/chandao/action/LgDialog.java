@@ -1,6 +1,5 @@
 package chandao.action;
 
-import chandao.bean.TaskItem;
 import chandao.data.LogInData;
 import chandao.message.Notifier;
 import chandao.query.Login;

@@ -14,8 +14,7 @@ public class NewWindowsAction extends AnAction {
     public void actionPerformed(@NotNull AnActionEvent anActionEvent) {
         TaskItem selectedValue = LogInData.listTask.getSelectedValue();
         if (selectedValue != null) {
-            TaskWindow task = new TaskWindow(selectedValue.getTaskName());
-            System.out.println(selectedValue);
+            new TaskWindow(selectedValue);
         }
     }
     public NewWindowsAction() {

@@ -7,9 +7,32 @@ public class TaskItem {
     private String taskName;
     //点击地址
     private HtmlAnchor anchor;
+    //id
     private String id;
     //优先级
     private String p;
+    //是否是子任务
+    private boolean isChild;
+    /**
+     * 类型 0任务 1bug 2标题
+     */
+    private int type;
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
+    public boolean isChild() {
+        return isChild;
+    }
+
+    public void setChild(boolean child) {
+        isChild = child;
+    }
 
     public String getTaskName() {
         return taskName;

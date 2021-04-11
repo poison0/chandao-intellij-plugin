@@ -1,22 +1,14 @@
 package chandao.query;
 
-import chandao.action.ExtractData;
-import chandao.bean.TaskItem;
+import chandao.util.ExtractDataUtil;
 import chandao.data.LogInData;
 import chandao.message.Notifier;
-import com.gargoylesoftware.htmlunit.BrowserVersion;
-import com.gargoylesoftware.htmlunit.NicelyResynchronizingAjaxController;
-import com.gargoylesoftware.htmlunit.Page;
-import com.gargoylesoftware.htmlunit.WebClient;
-import com.gargoylesoftware.htmlunit.html.HtmlButton;
-import com.gargoylesoftware.htmlunit.html.HtmlPage;
-import com.gargoylesoftware.htmlunit.html.HtmlPasswordInput;
-import com.gargoylesoftware.htmlunit.html.HtmlTextInput;
+import com.gargoylesoftware.htmlunit.*;
+import com.gargoylesoftware.htmlunit.html.*;
 import com.gargoylesoftware.htmlunit.util.Cookie;
 import com.intellij.openapi.ui.MessageType;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Set;
 
 public class Login {
@@ -39,6 +31,7 @@ public class Login {
     }
     //登录
     public void login() {
+
         try {
             //打开登录页面
             final HtmlPage page = webClient.getPage(LogInData.LOGIN_URL);
@@ -62,9 +55,14 @@ public class Login {
             //获取cookie
             LogInData.COOKIE = cookie.toString();
             LogInData.WEB_CLIENT = webClient;
-            HtmlPage MainPage = webClient.getPage("http://work.ruiyunnet.com/biz/user-login.html");
-            LogInData.TASK_LIST = ExtractData.getTaskList(MainPage.getPage());
-            LogInData.setTableModel();
+//            HtmlPage MainPage = webClient.getPage("http://work.ruiyunnet.com/biz/user-login.html");
+            webClient.getPage("http://work.ruiyunnet.com/biz/my-task-assignedTo-id_desc-100-2000-1.html");
+            if (webClient.getWebWindows().size() > 1) {
+                LogInData.TASK_LIST = ExtractDataUtil.getTaskList(((FrameWindow)webClient.getWebWindows().get(1)).getEnclosingPage());
+                LogInData.setTableModel();
+            }else{
+                Notifier.notify("查询出错，请重试", MessageType.ERROR);
+            }
         } catch (IOException e) {
             Notifier.notify(e.getMessage(), MessageType.ERROR);
         }

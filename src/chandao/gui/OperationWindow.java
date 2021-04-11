@@ -7,7 +7,6 @@ import com.intellij.openapi.wm.ToolWindow;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
@@ -42,8 +41,7 @@ public class OperationWindow {
                     System.out.println(listTask.getSelectedValue());
                     TaskItem selectedValue = LogInData.listTask.getSelectedValue();
                     if (selectedValue != null) {
-                        TaskWindow task = new TaskWindow(selectedValue.getTaskName());
-                        System.out.println(selectedValue);
+                        new TaskWindow(selectedValue);
                     }
                 }
             }
