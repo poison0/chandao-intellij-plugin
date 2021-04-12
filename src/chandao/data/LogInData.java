@@ -48,5 +48,6 @@ public class LogInData {
         for (TaskItem taskItem : TASK_LIST) {
             LIST_MODEL.addElement(taskItem);
         }
+        listTask.setSelectedIndex(0);
     }
 }
