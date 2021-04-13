@@ -45,9 +45,12 @@ public class LogInData {
 
     public static void setTableModel() {
         LIST_MODEL.clear();
+        TaskItem title = new TaskItem();
+        title.setType(2);
+        title.setTaskName("任务("+TASK_LIST.size()+")");
+        LIST_MODEL.addElement(title);
         for (TaskItem taskItem : TASK_LIST) {
             LIST_MODEL.addElement(taskItem);
         }
-        listTask.setSelectedIndex(0);
     }
 }

@@ -12,6 +12,11 @@ import java.io.IOException;
 import java.util.Set;
 
 public class Login {
+    //你的账号和密码
+//        String userName="niushunshun";
+//        String password="Niushunshun624";
+    //登录页面的网址
+//        String loginUrl="http://work.ruiyunnet.com/biz/user-login.html";
     WebClient webClient;
     public Login(){
         //新建一个模拟谷歌Chrome浏览器的浏览器客户端对象
@@ -24,7 +29,7 @@ public class Login {
         //是否启用CSS, 因为不需要展现页面, 所以不需要启用
         webClient.getOptions().setCssEnabled(false);
         //很重要，启用JS。有些网站要开启！
-        webClient.getOptions().setJavaScriptEnabled(true);
+//        webClient.getOptions().setJavaScriptEnabled(true);
         //很重要，设置支持AJAX
         webClient.setAjaxController(new NicelyResynchronizingAjaxController());
         webClient.getOptions().setTimeout(30000);

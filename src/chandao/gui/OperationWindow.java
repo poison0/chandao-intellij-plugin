@@ -22,7 +22,7 @@ public class OperationWindow {
     private JButton button1;
 
     private void init(ToolWindow toolWindow) {
-        listTask.setFixedCellHeight(40);
+        listTask.setFixedCellHeight(35);
         listTask.setModel(LogInData.LIST_MODEL);
         listTask.setCellRenderer(new ListCell());
         listTask.setVisible(true);
