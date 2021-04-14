@@ -15,11 +15,15 @@ import java.awt.*;
 public class ListCell extends JLabel implements ListCellRenderer<TaskItem>{
     @Override
     public Component getListCellRendererComponent(JList<? extends TaskItem> list, TaskItem value, int index, boolean isSelected, boolean cellHasFocus) {
-        if (value.getType() != 2) {
+        if (value.getType() == 0 || value.getType() == 1) {
+            String headIcon = " \uD83D\uDC2C #";
+            if (value.getType() == 1) {
+                headIcon = " \uD83D\uDC1E #";
+            }
             if (value.getP() == null || value.getP().equals("")) {
-                setText(" \uD83D\uDC2C #"+value.getId()+"  （子）  "+value.getTaskName());
+                setText(headIcon+value.getId()+"  （子）  "+value.getTaskName());
             }else{
-                setText(" \uD83D\uDC2C #"+value.getId()+"  "+value.getP()+"  "+value.getTaskName());
+                setText(headIcon+value.getId()+"  "+value.getP()+"  "+value.getTaskName());
             }
 //            setText("<html>" +
 //                    "<span> \uD83D\uDC2C </span>" +
@@ -48,8 +52,12 @@ public class ListCell extends JLabel implements ListCellRenderer<TaskItem>{
                 setForeground(list.getForeground());
             }
             setEnabled(list.isEnabled());
-            //标题
-            setText(" \uD83D\uDD28 "+value.getTaskName());
+            if (value.getType() == 2) {
+                //标题
+                setText(" \uD83D\uDD28 "+value.getTaskName());
+            }else {
+                setText(" \uD83D\uDD27 "+value.getTaskName());
+            }
             setFont(new Font(Font.DIALOG, Font.BOLD, 18));
             Color color = new JBColor(new Color(4, 121, 232), new Color(152, 202, 245));
             setForeground(color);

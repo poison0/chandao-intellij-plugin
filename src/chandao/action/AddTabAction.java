@@ -8,9 +8,8 @@ import org.jetbrains.annotations.NotNull;
 public class AddTabAction extends AnAction {
     @Override
     public void actionPerformed(@NotNull AnActionEvent anActionEvent) {
-        LgDialog lgDialog = new LgDialog();
+        LgDialog lgDialog = new LgDialog(anActionEvent.getProject());
         lgDialog.showThisDialog();
-        System.out.println("AddTabAction.actionPerformed");
     }
     public AddTabAction() {
         super("登录", "登录按钮", AllIcons.General.Add);

@@ -14,7 +14,7 @@ public class TaskItem {
     //是否是子任务
     private boolean isChild;
     /**
-     * 类型 0任务 1bug 2标题
+     * 类型 0任务 1bug 2任务标题 3bug标题
      */
     private int type;
 

@@ -1,8 +1,10 @@
 package chandao.data;
 
 import chandao.bean.TaskItem;
+import chandao.query.Login;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.intellij.ide.util.PropertiesComponent;
+import com.intellij.openapi.project.Project;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -25,6 +27,8 @@ public class LogInData {
     //任务
     public static List<TaskItem> TASK_LIST;
     //任务
+    public static List<TaskItem> BUG_LIST;
+    //任务
     public static JList<TaskItem> listTask;
 
     public static DefaultListModel <TaskItem> LIST_MODEL;
@@ -43,14 +47,37 @@ public class LogInData {
         }
     }
 
+    public static void init(Project project) {
+        if (USER_NAME != null && PASS_WORD != null) {
+            new Login().login(project);
+        }
+    }
     public static void setTableModel() {
-        LIST_MODEL.clear();
-        TaskItem title = new TaskItem();
-        title.setType(2);
-        title.setTaskName("任务("+TASK_LIST.size()+")");
-        LIST_MODEL.addElement(title);
+        TaskItem taskTitle = new TaskItem();
+        taskTitle.setType(2);
+        taskTitle.setTaskName("任务("+TASK_LIST.size()+")");
+        LIST_MODEL.addElement(taskTitle);
         for (TaskItem taskItem : TASK_LIST) {
             LIST_MODEL.addElement(taskItem);
         }
+        TaskItem bugTitle = new TaskItem();
+        bugTitle.setType(3);
+        bugTitle.setTaskName("bug("+BUG_LIST.size()+")");
+        LIST_MODEL.addElement(bugTitle);
+        for (TaskItem bugItem : BUG_LIST) {
+            LIST_MODEL.addElement(bugItem);
+        }
+    }
+    //退出
+    public static void clean(){
+        COOKIE = null;
+        WEB_CLIENT = null;
+        USER_NAME = null;
+        PASS_WORD = null;
+        NAME = null;
+        TASK_LIST.clear();
+        BUG_LIST.clear();
+        listTask = null;
+        LIST_MODEL.clear();
     }
 }

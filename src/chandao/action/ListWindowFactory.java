@@ -1,5 +1,6 @@
 package chandao.action;
 
+import chandao.data.LogInData;
 import chandao.gui.OperationWindow;
 import chandao.gui.ToolWindowPanel;
 import com.intellij.openapi.actionSystem.ActionManager;
@@ -18,6 +19,7 @@ import javax.swing.*;
 public class ListWindowFactory implements ToolWindowFactory {
     @Override
     public void createToolWindowContent(@NotNull Project project, @NotNull ToolWindow toolWindow) {
+        LogInData.init(project);
         OperationWindow noteListWindow = new OperationWindow(project, toolWindow);
         ContentFactory instance = ContentFactory.SERVICE.getInstance();
         JPanel contentPanel = noteListWindow.getContentPanel();

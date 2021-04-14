@@ -8,14 +8,16 @@
     <properties/>
     <border type="none"/>
     <children>
-      <splitpane id="6bb03">
+      <splitpane id="6bb03" binding="splitPane">
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="200" height="200"/>
           </grid>
         </constraints>
         <properties>
-          <dividerLocation value="1121"/>
+          <continuousLayout value="true"/>
+          <dividerLocation value="833"/>
+          <dividerSize value="3"/>
           <toolTipText value=""/>
         </properties>
         <border type="empty"/>
@@ -85,7 +87,9 @@
             <children>
               <component id="4257" class="javax.swing.JList" binding="listTask" default-binding="true">
                 <constraints/>
-                <properties/>
+                <properties>
+                  <background color="-14144460"/>
+                </properties>
               </component>
             </children>
           </scrollpane>

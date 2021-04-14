@@ -4,6 +4,8 @@ import chandao.bean.TaskItem;
 import chandao.data.LogInData;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.wm.ToolWindow;
+import com.intellij.ui.Gray;
+import com.intellij.ui.JBColor;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
@@ -20,14 +22,19 @@ public class OperationWindow {
     private JList<TaskItem> listTask;
     private JTextPane textPane1;
     private JButton button1;
+    private JSplitPane splitPane;
 
     private void init(ToolWindow toolWindow) {
         listTask.setFixedCellHeight(35);
         listTask.setModel(LogInData.LIST_MODEL);
         listTask.setCellRenderer(new ListCell());
         listTask.setVisible(true);
+        Color color = new JBColor(Gray._255, Gray._64);
+        listTask.setBackground(color);
         //赋值给全局变量
         LogInData.listTask = listTask;
+        splitPane.setDividerLocation(1500);
+        splitPane.setDividerSize(3);
     }
 
 

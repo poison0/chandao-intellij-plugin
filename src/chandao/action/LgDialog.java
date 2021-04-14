@@ -4,6 +4,7 @@ import chandao.data.LogInData;
 import chandao.message.Notifier;
 import chandao.query.Login;
 import com.intellij.ide.util.PropertiesComponent;
+import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.openapi.ui.MessageType;
 import org.jetbrains.annotations.Nullable;
@@ -15,9 +16,11 @@ public class LgDialog extends DialogWrapper {
 
     JTextField userField;
     JPasswordField passwordField;
+    Project project;
 
-    public LgDialog() {
+    public LgDialog(Project project) {
         super(true);
+        this.project = project;
         init();
         setTitle("登录");
     }
@@ -61,7 +64,7 @@ public class LgDialog extends DialogWrapper {
             instance.setValue("chandao_pass_word",password);
             instance.setValue("chandao_user_name",user);
             LgDialog.this.dispose();
-            new Login().login();
+            new Login().login(project);
 
             Notifier.notify("登录成功", MessageType.INFO);
         });
