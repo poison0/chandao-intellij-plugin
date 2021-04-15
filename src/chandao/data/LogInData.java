@@ -19,6 +19,8 @@ public class LogInData {
     public static String USER_NAME;
     //密码
     public static String PASS_WORD;
+    //密码
+    public static String URL;
 
     //登录地址
     public static String LOGIN_URL;
@@ -35,6 +37,7 @@ public class LogInData {
 
     static {
         LOGIN_URL = "http://work.ruiyunnet.com/biz/user-login.html";
+        URL = "http://work.ruiyunnet.com";
         TASK_LIST = new ArrayList<>();
         LIST_MODEL = new DefaultListModel<>();
         //数据持久化

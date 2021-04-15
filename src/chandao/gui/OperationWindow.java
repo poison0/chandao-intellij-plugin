@@ -29,7 +29,7 @@ public class OperationWindow {
         listTask.setModel(LogInData.LIST_MODEL);
         listTask.setCellRenderer(new ListCell());
         listTask.setVisible(true);
-        Color color = new JBColor(Gray._255, Gray._64);
+        Color color = new JBColor(Gray._255, Gray._255);
         listTask.setBackground(color);
         //赋值给全局变量
         LogInData.listTask = listTask;
@@ -48,7 +48,7 @@ public class OperationWindow {
                     System.out.println(listTask.getSelectedValue());
                     TaskItem selectedValue = LogInData.listTask.getSelectedValue();
                     if (selectedValue != null) {
-                        new TaskWindow(selectedValue);
+                        new TaskWindow(project,selectedValue);
                     }
                 }
             }

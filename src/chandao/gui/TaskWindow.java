@@ -3,6 +3,11 @@ package chandao.gui;
 
 import chandao.bean.TaskItem;
 import chandao.util.TaskDetailUtil;
+import com.intellij.openapi.progress.ProgressIndicator;
+import com.intellij.openapi.progress.ProgressManager;
+import com.intellij.openapi.progress.Task;
+import com.intellij.openapi.project.Project;
+import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,9 +16,14 @@ import java.awt.event.WindowEvent;
 
 public class TaskWindow extends JFrame {
 
-    public TaskWindow(TaskItem item) {
-        setupView(item);
-        setTitle("#"+item.getId()+" "+item.getP()+" "+item.getTaskName());
+    public TaskWindow(Project project,TaskItem item) {
+        ProgressManager.getInstance().run(new Task.Backgroundable(project, "Loading...") {
+            @Override
+            public void run(@NotNull ProgressIndicator progressIndicator) {
+                setupView(item);
+                setTitle("#" + item.getId() + " " + item.getP() + " " + item.getTaskName());
+            }
+        });
     }
     private void setupView(TaskItem item) {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();

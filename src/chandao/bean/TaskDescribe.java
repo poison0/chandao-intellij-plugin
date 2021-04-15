@@ -7,6 +7,16 @@ public class TaskDescribe {
     private String text;
     //图片地址
     private String url;
+    //宽度
+    private int width;
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
 
     public int getType() {
         return type;

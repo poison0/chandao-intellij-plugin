@@ -77,6 +77,7 @@ public class Login {
                 LIST_MODEL.clear();
                 try {
                     WEB_CLIENT.getPage("http://work.ruiyunnet.com/biz/my-task-assignedTo-id_desc-100-2000-1.html");
+                    WEB_CLIENT.getPage("http://work.ruiyunnet.com/biz/my-task-assignedTo-id_desc-100-2000-1.html");
                     WEB_CLIENT.getPage("http://work.ruiyunnet.com/biz/my-bug-assignedTo-id_desc-100-2000-1.html");
                     if (WEB_CLIENT.getWebWindows().size() > 1) {
                         List<WebWindow> webWindows = WEB_CLIENT.getWebWindows();
