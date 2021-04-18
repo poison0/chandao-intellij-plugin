@@ -76,17 +76,12 @@ public class Login {
             public void run(@NotNull ProgressIndicator progressIndicator) {
                 LIST_MODEL.clear();
                 try {
-                    WEB_CLIENT.getPage("http://work.ruiyunnet.com/biz/my-task-assignedTo-id_desc-100-2000-1.html");
-                    WEB_CLIENT.getPage("http://work.ruiyunnet.com/biz/my-task-assignedTo-id_desc-100-2000-1.html");
-                    WEB_CLIENT.getPage("http://work.ruiyunnet.com/biz/my-bug-assignedTo-id_desc-100-2000-1.html");
+                    HtmlPage task = WEB_CLIENT.getPage("http://work.ruiyunnet.com/biz/my-task-assignedTo-id_desc-100-2000-1.html");
+                    HtmlPage bug = WEB_CLIENT.getPage("http://work.ruiyunnet.com/biz/my-bug-assignedTo-id_desc-100-2000-1.html");
                     if (WEB_CLIENT.getWebWindows().size() > 1) {
                         List<WebWindow> webWindows = WEB_CLIENT.getWebWindows();
-                        LogInData.TASK_LIST = ExtractDataUtil.getTaskList(((FrameWindow) WEB_CLIENT.getWebWindows().get(1)).getEnclosingPage(), 0);
-                        if (webWindows.size() == 4) {
-                            LogInData.BUG_LIST = ExtractDataUtil.getTaskList(((FrameWindow) WEB_CLIENT.getWebWindows().get(3)).getEnclosingPage(), 1);
-                        } else if (webWindows.size() == 3) {
-                            LogInData.BUG_LIST = ExtractDataUtil.getTaskList(((FrameWindow) WEB_CLIENT.getWebWindows().get(2)).getEnclosingPage(), 1);
-                        }
+                        LogInData.TASK_LIST = ExtractDataUtil.getTaskList(task, 0);
+                        LogInData.BUG_LIST = ExtractDataUtil.getTaskList(bug, 1);
                         LogInData.setTableModel();
                     } else {
                         Notifier.notify("查询出错，请重试", MessageType.ERROR);

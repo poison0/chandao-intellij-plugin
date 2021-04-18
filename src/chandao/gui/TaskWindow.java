@@ -17,13 +17,13 @@ import java.awt.event.WindowEvent;
 public class TaskWindow extends JFrame {
 
     public TaskWindow(Project project,TaskItem item) {
-        ProgressManager.getInstance().run(new Task.Backgroundable(project, "Loading...") {
-            @Override
-            public void run(@NotNull ProgressIndicator progressIndicator) {
+//        ProgressManager.getInstance().run(new Task.Backgroundable(project, "Loading...") {
+//            @Override
+//            public void run(@NotNull ProgressIndicator progressIndicator) {
                 setupView(item);
                 setTitle("#" + item.getId() + " " + item.getP() + " " + item.getTaskName());
-            }
-        });
+//            }
+//        });
     }
     private void setupView(TaskItem item) {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();

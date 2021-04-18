@@ -4,6 +4,7 @@ import chandao.bean.TaskDescribe;
 import chandao.bean.TaskDetail;
 import chandao.bean.TaskHistory;
 import chandao.bean.TaskItem;
+import chandao.data.LogInData;
 import chandao.message.Notifier;
 import com.gargoylesoftware.htmlunit.Page;
 import com.gargoylesoftware.htmlunit.html.*;
@@ -46,10 +47,14 @@ public class TaskDetailUtil {
     public static String createdHistory(List<TaskHistory> taskHistories) {
         StringBuilder html = new StringBuilder("<html>");
         for (TaskHistory taskHistory : taskHistories) {
-            if (taskHistory.getType() == 0) {
-                html.append(" <div>  ").append("   <span> ").append(taskHistory.getText()).append(" </span>").append(" </div>");
-            }else{
-                html.append(" <div>  ").append("   <img style='max-width:500px' src='").append(taskHistory.getUrl()).append("' />").append(" </div>");
+//            if (taskHistory.getType() == 0) {
+//                html.append(" <div>  ").append("   <span> ").append(taskHistory.getText()).append(" </span>").append(" </div>");
+//            }else{
+//                html.append(" <div>  ").append("   <img style='max-width:500px' src='").append(taskHistory.getUrl()).append("' />").append(" </div>");
+//            }
+            String[] split = taskHistory.getText().split("\n");
+            for (String s : split) {
+                html.append(s).append("<br/>");
             }
         }
         html.append("</html>");
@@ -63,13 +68,27 @@ public class TaskDetailUtil {
         try {
             HtmlPage click = anchor.click();
             taskDetail.setTaskDescribes(getTaskDescribe(click));
-            taskDetail.setTaskHistories(new ArrayList<>());
+            taskDetail.setTaskHistories(getTaskHistory(click));
         } catch (IOException e) {
             e.printStackTrace();
             Notifier.notify(e.getMessage(), MessageType.ERROR);
         }
         // TODO 需要解析
         return taskDetail;
+    }
+
+    public static List<TaskHistory> getTaskHistory(HtmlPage page) {
+        List<TaskHistory> taskHistories = new ArrayList<>();
+        List<HtmlListItem> listItems = page.getByXPath("//ol[@class='histories-list']/li");
+        for (HtmlListItem listItem : listItems) {
+            List<HtmlDivision> byXPath = listItem.getByXPath("//div[@class='comment-content']");
+            System.out.println(listItem.getVisibleText());
+            TaskHistory taskHistory = new TaskHistory();
+            taskHistory.setText(listItem.getVisibleText().replaceAll("src=\"/biz/","width=\"400\" src=\""+ URL +"/biz/"));
+            taskHistories.add(taskHistory);
+        }
+
+        return taskHistories;
     }
 
     public static List<TaskDescribe> getTaskDescribe(HtmlPage page) {
