@@ -56,7 +56,7 @@ public class Login {
 
             HtmlButton btnLogin= (HtmlButton) page.getElementById("submit");
             //点击登录按钮，返回值为登陆成功后跳到的页面
-            Page click = btnLogin.click();
+            btnLogin.click();
             Set<Cookie> cookies = webClient.getCookieManager().getCookies();
             StringBuilder cookie = new StringBuilder();
             for (Cookie item : cookies) {

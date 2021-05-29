@@ -33,7 +33,7 @@ public class HttpClient {
             httpPost.addHeader("Content-type", "application/x-www-form-urlencoded");
             httpPost.addHeader("cookie", cookie);
             // 添加参数
-            List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+            List<NameValuePair> nameValuePairs = new ArrayList<>();
             if (params.size() != 0) {
                 // 将mapdata中的key存在set集合中，通过迭代器取出所有的key，再获取每一个键对应的值
                 Set<String> keySet = params.keySet();

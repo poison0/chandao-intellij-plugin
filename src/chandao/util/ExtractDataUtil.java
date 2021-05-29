@@ -30,6 +30,13 @@ public class ExtractDataUtil {
         return taskItems;
     }
 
+    /**
+     * 获取任务内容
+     * @author nss
+     * @date 2021/5/29
+     * @param htmlTableRow 任务的node
+     * @return chandao.bean.TaskItem
+     */
     private static TaskItem getTaskItem(HtmlTableRow htmlTableRow) {
         String id = htmlTableRow.getCell(0).asText().split("\r\n")[1];
 
@@ -53,6 +60,13 @@ public class ExtractDataUtil {
         taskItem.setType(0);
         return taskItem;
     }
+    /**
+     * 获取bug内容
+     * @author nss
+     * @date 2021/5/29
+     * @param htmlTableRow bug的node
+     * @return chandao.bean.TaskItem
+     */
     private static TaskItem getBugItem(HtmlTableRow htmlTableRow) {
         String id = htmlTableRow.getCell(0).asText().split("\r\n")[1];
 
@@ -77,7 +91,4 @@ public class ExtractDataUtil {
         return taskItem;
     }
 
-    public static String getNum() {
-        return "";
-    }
 }
