@@ -13,6 +13,8 @@ public class TaskItem {
     private String p;
     //是否是子任务
     private boolean isChild;
+    //uid
+    private String uid;
     /**
      * 类型 0任务 1bug 2任务标题 3bug标题
      */
@@ -32,6 +34,14 @@ public class TaskItem {
 
     public void setChild(boolean child) {
         isChild = child;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
     public String getTaskName() {

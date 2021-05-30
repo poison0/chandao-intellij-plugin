@@ -23,7 +23,7 @@ public class HttpClient {
      * @param cookie cookie
      * @return 接口返回内容
      */
-    public String doPostForm(String url, Map<String, String> params,String cookie) {
+    public static String doPostForm(String url, Map<String, String> params,String cookie) {
         CloseableHttpResponse response = null;
         CloseableHttpClient httpClient = HttpClients.createDefault();
         // 创建httppost

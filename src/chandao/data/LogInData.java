@@ -32,6 +32,8 @@ public class LogInData {
     public static List<TaskItem> BUG_LIST;
     //任务
     public static JList<TaskItem> listTask;
+    //主窗口选中的item
+    public static TaskItem mainChooseItem;
 
     public static DefaultListModel <TaskItem> LIST_MODEL;
 
