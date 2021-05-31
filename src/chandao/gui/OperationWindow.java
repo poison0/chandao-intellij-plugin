@@ -108,7 +108,7 @@ public class OperationWindow {
                         } else {
                             uid = LogInData.mainChooseItem.getUid();
                         }
-                        post(project,uid, remarkCon.getText(), uid);
+                        post(project,uid, remarkCon.getText(), LogInData.mainChooseItem.getId());
                     }
                 } catch (IOException ioException) {
                     ioException.printStackTrace();

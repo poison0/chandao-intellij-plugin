@@ -16,14 +16,47 @@ public class ListCell extends JLabel implements ListCellRenderer<TaskItem>{
     @Override
     public Component getListCellRendererComponent(JList<? extends TaskItem> list, TaskItem value, int index, boolean isSelected, boolean cellHasFocus) {
         if (value.getType() == 0 || value.getType() == 1) {
-            String headIcon = " \uD83D\uDC2C #";
-            if (value.getType() == 1) {
-                headIcon = " \uD83D\uDC1E #";
-            }
+//            String headIcon = " \uD83D\uDC2C ";
+//            if (value.getType() == 1) {
+//                headIcon = " \uD83D\uDC1E ";
+//            }
             if (value.getP() == null || value.getP().equals("")) {
-                setText(headIcon+value.getId()+"  （子）  "+value.getTaskName());
+                String text = "<html>" +
+                        "    <div>" +
+                        "        <div style=\"float: left;\" >" +
+                        "            <font color='#808080'> &nbsp&nbsp#"+value.getId()+"</font>" +
+                        "            "+value.getTaskName()+"" +
+                        "        </div>" +
+                        "    </div>" +
+                        "</html>";
+                setText(text);
             }else{
-                setText(headIcon+value.getId()+"  "+value.getP()+"  "+value.getTaskName());
+                String p = value.getP();
+                switch (p) {
+                    case "中":p = "<font color='#A0D0F2'>"+p+"</font>";break;
+                    case "高":p = "<font color='#FF9902'>"+p+"</font>";break;
+                    case "紧急":p = "<font color='#D50202'>"+p+"</font>";break;
+                    case "已上线":p = "<font color='#A0D0F2'>"+p+"</font>";break;
+                    case "低":p = "<font color='#029789'>"+p+"</font>";break;
+                    case "当前周完成":p = "<font color='#818181'>"+p+"</font>";break;
+                    case "bug转入":p = "<font color='#A0D0F2'>"+p+"</font>";break;
+                    case "敏捷":p = "<font color='#A0D0F2'>"+p+"</font>";break;
+                    case "下周完成":p = "<font color='#A0D0F2'>"+p+"</font>";break;
+                    case "轻微":p = "<font color='#FDDAAC'>"+p+"</font>";break;
+                    case "一般":p = "<font color='#FFBF53'>"+p+"</font>";break;
+                    case "严重":p = "<font color='#FFFFFF'>"+p+"</font>";break;
+                    default:
+                }
+
+                String text = "<html>" +
+                        "    <div>" +
+                        "        <div >" +
+                        "            <font color='#808080'> &nbsp&nbsp#"+value.getId()+"</font>" +
+                        "            "+p+"  "+value.getTaskName()+"" +
+                        "        </div>" +
+                        "    </div>" +
+                        "</html>";
+                setText(text);
             }
 //            setText("<html>" +
 //                    "<span> \uD83D\uDC2C </span>" +
