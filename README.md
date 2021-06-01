@@ -9,8 +9,6 @@
 
 ##Dev Build
 
->clone code
 >get clone https://github.com/poison0/Nchat-intellit-plugin.git  
 >Importing [htmlUnit]((https://www.runoob.com)) packages  
 >Debug plugin
-> 
