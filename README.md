@@ -5,7 +5,6 @@
 
 ![图片](https://github.com/poison0/chandao-intellij-plugin/blob/main/src/chandao/image/2021-06-01%20001010.jpg)
 
-![图片](https://github.com/poison0/chandao-intellij-plugin/blob/main/src/chandao/image/2021-06-01%20001045.jpg)
 
 ##Dev Build
 
