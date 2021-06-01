@@ -13,7 +13,7 @@ public class Notifier {
     //通知弹框
     public static void notify(String content,MessageType type) {
         NotificationGroup error = new NotificationGroup("notify", NotificationDisplayType.BALLOON, true);
-        Notification notification = error.createNotification(content, type);
+        Notification notification = error.createNotification("禅道："+content, type);
         Notifications.Bus.notify(notification);
     }
 }
