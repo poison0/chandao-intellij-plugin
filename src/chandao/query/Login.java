@@ -65,6 +65,7 @@ public class Login {
             //获取cookie
             LogInData.COOKIE = cookie.toString();
             WEB_CLIENT = webClient;
+            WEB_CLIENT.getPage("http://work.ruiyunnet.com/biz/my-task-assignedTo-id_desc-100-2000-1.html");
             refresh(project);
         } catch (IOException e) {
             Notifier.notify(e.getMessage(), MessageType.ERROR);
@@ -76,10 +77,10 @@ public class Login {
             public void run(@NotNull ProgressIndicator progressIndicator) {
                 LIST_MODEL.clear();
                 try {
+
                     HtmlPage task = WEB_CLIENT.getPage("http://work.ruiyunnet.com/biz/my-task-assignedTo-id_desc-100-2000-1.html");
                     HtmlPage bug = WEB_CLIENT.getPage("http://work.ruiyunnet.com/biz/my-bug-assignedTo-id_desc-100-2000-1.html");
                     if (WEB_CLIENT.getWebWindows().size() > 1) {
-                        List<WebWindow> webWindows = WEB_CLIENT.getWebWindows();
                         LogInData.TASK_LIST = ExtractDataUtil.getTaskList(task, 0);
                         LogInData.BUG_LIST = ExtractDataUtil.getTaskList(bug, 1);
                         LogInData.setTableModel();
