@@ -1,11 +1,14 @@
 <idea-plugin>
-  <id>com.your.company.unique.plugin.id</id>
+  <id>cn.nss.plugin.chandao</id>
   <name>ChanDao</name>
   <version>1.0</version>
   <vendor email="1570012077@qq.com" url="https://github.com/poison0">poison0</vendor>
 
   <description><![CDATA[
-      禅道客户端插件，可以查看任务和bug，并做修改
+      <p><b>禅道客户端插件，可以查看任务和bug，并做修改</b></p>
+      <br/>
+      <br/>
+      <a href="https://github.com/poison0/chandao-intellij-plugin">GitHub</a>
     ]]></description>
 
   <change-notes>
