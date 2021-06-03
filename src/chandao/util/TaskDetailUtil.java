@@ -93,7 +93,6 @@ public class TaskDetailUtil {
         try {
             List<HtmlListItem> listItems = page.getByXPath("//ol[@class='histories-list']/li");
             for (HtmlListItem listItem : listItems) {
-                System.out.println(listItem.getVisibleText());
                 taskHistories.add(getHistory(listItem));
             }
         } catch (Exception e) {
@@ -117,7 +116,6 @@ public class TaskDetailUtil {
         int textPointer = 0;
         int namePointer = 0;
         for (DomNode childNode : childNodes) {
-            System.out.println(childNode.getVisibleText());
             if(childNode instanceof DomText){
                 if (textPointer == 0) {
                     taskHistory.setTime(childNode.getVisibleText());
@@ -139,7 +137,6 @@ public class TaskDetailUtil {
                 if ("article-content comment".equals(division.getAttribute("class"))) {
                     DomNodeList<DomNode> nodes = division.getChildNodes();
                     for (DomNode node : nodes) {
-                        System.out.println(node);
                         if (node instanceof HtmlDivision) {
                             HtmlDivision div = (HtmlDivision) node;
                             DomNodeList<DomNode> childNodes1 = div.getChildNodes();
@@ -167,6 +164,11 @@ public class TaskDetailUtil {
                                             historyItems.add(historyItem);
                                         }
                                     }
+                                } else if (domNode instanceof DomText) {
+                                    TaskHistory.HistoryItem historyItem = new TaskHistory.HistoryItem();
+                                    historyItem.setType(0);
+                                    historyItem.setText(domNode.asText());
+                                    historyItems.add(historyItem);
                                 }
                             }
                         }

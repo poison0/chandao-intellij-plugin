@@ -45,7 +45,6 @@ public class HttpClient {
                 }
             }
             httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-            System.out.println("nameValuePairs:" + nameValuePairs);
             // 执行http请求
             response = httpClient.execute(httpPost);
             // 获得http响应体

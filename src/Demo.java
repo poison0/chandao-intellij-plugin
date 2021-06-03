@@ -72,7 +72,6 @@ public class Demo {
     public static void main(String[] args){
         Demo demo=new Demo();
         demo.login(); //如果网站必须登录才能进入，那就登录
-        System.out.println("已登录:");
         demo.work("http://work.ruiyunnet.com/biz/task-view-28564.html");
     }
 }

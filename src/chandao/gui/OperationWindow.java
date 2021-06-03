@@ -85,7 +85,6 @@ public class OperationWindow {
             public void mouseClicked(MouseEvent e) {
                 //右键复制到粘贴板
                 if (e.getButton() == 3) {
-                    System.out.println("复制到"+listTask.getSelectedValue().toString());
                     setClipboardString(listTask.getSelectedValue().toString());
                 }
             }
@@ -127,7 +126,6 @@ public class OperationWindow {
                 params.put("comment", comment);
                 params.put("uid", uid);
                 String value = HttpClient.doPostForm("http://work.ruiyunnet.com/biz/action-comment-task-" + id + ".html", params, LogInData.COOKIE);
-                System.out.println(value);
                 Notifier.notify("添加成功！", MessageType.INFO);
             }
         });
