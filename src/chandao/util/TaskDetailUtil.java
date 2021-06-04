@@ -146,10 +146,12 @@ public class TaskDetailUtil {
                                     DomNodeList<DomNode> paragraphChildNodes = paragraph.getChildNodes();
                                     for (DomNode paragraphChildNode : paragraphChildNodes) {
                                         if (paragraphChildNode instanceof DomText) {
-                                            TaskHistory.HistoryItem historyItem = new TaskHistory.HistoryItem();
-                                            historyItem.setType(0);
-                                            historyItem.setText(paragraphChildNode.asText());
-                                            historyItems.add(historyItem);
+                                            if (!"".equals(paragraphChildNode.asText())) {
+                                                TaskHistory.HistoryItem historyItem = new TaskHistory.HistoryItem();
+                                                historyItem.setType(0);
+                                                historyItem.setText(paragraphChildNode.asText());
+                                                historyItems.add(historyItem);
+                                            }
                                         }
                                         if (paragraphChildNode instanceof HtmlImage) {
                                             HtmlImage image = (HtmlImage) paragraphChildNode;
@@ -165,10 +167,12 @@ public class TaskDetailUtil {
                                         }
                                     }
                                 } else if (domNode instanceof DomText) {
-                                    TaskHistory.HistoryItem historyItem = new TaskHistory.HistoryItem();
-                                    historyItem.setType(0);
-                                    historyItem.setText(domNode.asText());
-                                    historyItems.add(historyItem);
+                                    if (!"".equals(domNode.asText())) {
+                                        TaskHistory.HistoryItem historyItem = new TaskHistory.HistoryItem();
+                                        historyItem.setType(0);
+                                        historyItem.setText(domNode.asText());
+                                        historyItems.add(historyItem);
+                                    }
                                 }
                             }
                         }
@@ -216,8 +220,10 @@ public class TaskDetailUtil {
         TaskDescribe taskDescribe = new TaskDescribe();
         if (node instanceof DomText) {
             DomText text = (DomText) node;
-            taskDescribe.setType(0);
-            taskDescribe.setText(text.asText());
+            if (!"".equals(text.asText())) {
+                taskDescribe.setType(0);
+                taskDescribe.setText(text.asText());
+            }
         } else if (node instanceof HtmlBreak) {
             taskDescribe.setType(0);
             taskDescribe.setText("");
@@ -246,10 +252,14 @@ public class TaskDetailUtil {
             HtmlBold firstChild = (HtmlBold) node;
             DomNodeList<DomNode> childNodes = firstChild.getChildNodes();
             for (DomNode childNode : childNodes) {
-                HtmlSpan span = (HtmlSpan) childNode;
-                DomNodeList<DomNode> spanChildNodes = span.getChildNodes();
-                for (DomNode spanChildNode : spanChildNodes) {
-                    taskDescribe = analyzeDom(spanChildNode);
+                if (childNode instanceof HtmlSpan) {
+                    HtmlSpan span = (HtmlSpan) childNode;
+                    DomNodeList<DomNode> spanChildNodes = span.getChildNodes();
+                    for (DomNode spanChildNode : spanChildNodes) {
+                        taskDescribe = analyzeDom(spanChildNode);
+                    }
+                }else {
+                    taskDescribe = analyzeDom(childNode);
                 }
             }
         }
