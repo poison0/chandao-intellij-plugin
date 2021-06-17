@@ -5,10 +5,15 @@
   <vendor email="1570012077@qq.com" url="https://github.com/poison0">poison0</vendor>
 
   <description><![CDATA[
-      <p><b>禅道客户端插件，可以查看任务和bug，并做修改</b></p>
+      <p><b>ChanDao client plugin to view and edit tasks and bugs</b></p>
       <br/>
       <br/>
       <a href="https://github.com/poison0/chandao-intellij-plugin">GitHub</a>
+      <br/>
+      <p><b>Features:</b>
+      <li>View tasks.</li>
+      <li>Editor's Note.</li>
+      <li>Synchronized Progress.</li>
     ]]></description>
 
   <change-notes>
