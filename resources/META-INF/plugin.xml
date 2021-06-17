@@ -1,16 +1,13 @@
 <idea-plugin>
   <id>cn.nss.plugin.chandao</id>
   <name>ChanDao</name>
-  <version>1.0</version>
+  <version>1.1</version>
   <vendor email="1570012077@qq.com" url="https://github.com/poison0">poison0</vendor>
 
   <description><![CDATA[
-      <p><b>ChanDao client plugin to view and edit tasks and bugs</b></p>
+      <p><b>ChanDao client plugin to view and edit tasks and bugs</b>
+      [<a href="https://github.com/poison0/chandao-intellij-plugin">GitHub</a>]
       <br/>
-      <br/>
-      <a href="https://github.com/poison0/chandao-intellij-plugin">GitHub</a>
-      <br/>
-      <p><b>Features:</b>
       <li>View tasks.</li>
       <li>Editor's Note.</li>
       <li>Synchronized Progress.</li>
