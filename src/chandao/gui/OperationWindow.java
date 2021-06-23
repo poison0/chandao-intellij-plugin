@@ -64,6 +64,9 @@ public class OperationWindow {
         listTask.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                if (LogInData.listTask == null) {
+                    init(toolWindow);
+                }
                 TaskItem selectedValue = LogInData.listTask.getSelectedValue();
                 if (e.getClickCount() == 2) {
                     if (selectedValue != null) {

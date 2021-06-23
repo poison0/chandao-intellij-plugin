@@ -5,12 +5,19 @@
   <vendor email="1570012077@qq.com" url="https://github.com/poison0">poison0</vendor>
 
   <description><![CDATA[
-      <p><b>ChanDao client plugin to view and edit tasks and bugs</b>
+      <b><a href="https://www.zentao.net/">ChanDao</a> client plugin to view and edit tasks and bugs,You can work on tasks inside ide without opening a browser,Go to the details page to view the note record and details</b>
       [<a href="https://github.com/poison0/chandao-intellij-plugin">GitHub</a>]
       <br/>
       <li>View tasks.</li>
       <li>Editor's Note.</li>
       <li>Synchronized Progress.</li>
+      <br/>
+      <b>Preview</b><br/><br/>
+      <img src="https://github.com/poison0/chandao-intellij-plugin/blob/main/src/chandao/image/2021-06-01%20001010.jpg" width="294" ><br/>
+      <br/>
+      <b>Feature</b><br/><br/>
+      <li>Log in to your <a href="https://www.zentao.net/">ChanDao</a> account</li>
+      <li>View tasks and bugs</li>
     ]]></description>
 
   <change-notes>
